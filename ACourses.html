@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACourses - Online IT Courses </title>
+    <link rel="stylesheet" href="acourses.css" type="text/css">
+    <link rel="icon" href="../Projekat/pic/ACourses logo.jpg" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script  defer src = formval.js></script>
+    <script src="search.js"></script>
+   
+</head>
+<body>
+    <nav>
+		<a href="#"><img src="../Projekat/pic/ACourses logo.jpg"></a>
+		<div class="navigation">
+	    <ul>
+            <i id="menu-close" class="fas fa-times"></i>
+	        <li><a href="ACourses.html">Home</a></li>
+	     	<li><a href="#about">About</a></li>
+	     	<li><a href="#course">Courses</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="Users.html">Users</a></li>
+            <li><a onclick="document.getElementById('id01').style.display='block'" style="width:auto;" href="#id01">Log in</a></li> 
+            <li><a onclick="document.getElementById('id02').style.display='block'" style="width:auto;" href="#id02">Sign up</a></li> 
+            <!-- <li><form class="search" style="margin:auto;max-width:300px">
+                    <input type="text" placeholder="Search" name="search" id="search">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>  </li> -->
+                <li>
+                    <input class="openBtn" onkeyup="openSearch() ; searchCourse()" id="search" placeholder="Search for courses" type="search" autocomplete="off"  >
+                </li>
+
+            <li><a href= "Caart.html"><img src="../Projekat/pic/cart.jpg"></a></li>
+        </ul>
+        <img id="menu-btn" src="../Projekat/pic/menu.png" alt="">
+        </div>
+	</nav>
+
+
+
+      <div id = "myOverlay" class="overlay">
+        <span class="closebtn" onclick="closeSearch()" title="Close Overlay">×</span>
+        <div class="overlay-content">
+            <ul id="allCourses">
+                <table id="allCourses"></table>
+            </ul>
+        </div>
+      </div>
+
+   <section class="banner">
+
+    
+
+
+
+        <h1 id="main-heading">Join ACourses!</h1>
+        <h6 id="second-heading">Educational Inspiration</h6>
+        <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Join now!</button>
+
+        <div id="id01" class="modal">
+        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+        <form id = "form" class="modal-content" method="GET">
+        <div id = "login_div" class="container">
+            <p>Welcome back</p>
+            <h1>Log into your account</h1>
+             <hr>
+                 <div class="input-control">
+              <label  for="email"><p>E-Mail</p></label>
+            <input  id = "username" type="text" placeholder="Enter your e-mail address" name="username" autocomplete="off" >
+                 <div class="error"></div>
+                 </div>
+
+                 <div class="input-control">
+            <label for="psw"><p>Password</p></label>
+            <input id = "password" type="password" placeholder="Enter your password" name="password" autocomplete = "off">
+                <div class="error"></div>
+                </div>
+             
+            
+            <label>
+                  <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px";> Remember me
+            </label>
+            <p>Not registered yet? <a onclick="document.getElementById('id02').style.display='block'" style="width:auto;" href="#id02" style="color:#947D90">Register now!</a>.</p>
+        
+            <div class="clearfix">
+                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                <button onclick="login()" type="submit" class="signupbtn">Log in</button>
+             </div>
+                  
+         </div>
+        </form>
+              
+        <div id ="user_div">
+            <h3>You're logged in.</h3>
+            <p id ="user_para"></p>
+            <button onclick = "logout()">Logout</button>
+        </div>
+    </div>
+
+
+    
+
+    <div id="id02" class="modal">
+        <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+        <form class="modal-content" id="form" >
+        <div class="container">
+            <p>If you don't have an account, please</p>
+            <h1>Sign Up</h1>
+             
+             <div>
+            <div class="input-control">
+             <label for="name"><p>Name</p></label>
+             <input type="text" placeholder="Enter your name" name="name"  id = "name">
+                <div class="error"></div>
+            </div>
+
+            <div class="input-control">
+             <label for="last-name"><p>Last Name</p></label>
+             <input type="text" placeholder="Enter your last name" name="last-name"id = "last-name">
+             <div class="error"></div>
+            </div>
+
+             <div class="input-control">
+              <label for="email"><p>E-mail</p></label>
+            <input type="text" placeholder="Enter your e-mail" name="email" id = "email">
+            <div class="error"></div>
+            </div>
+
+            <div class="input-control">
+            <label for="psw"><p>Password</p></label>
+            <input type="password" placeholder="Enter your password" name="password" id = "password1">
+            <div class="error"></div>
+            </div>
+
+            <div class="input-control">
+            <label for="psw"><p>Repeat Password</p></label>
+            <input id = "password2" type="password" placeholder="Enter your password" name="password2" >
+            <div class="error"></div>
+            </div>
+
+            <div class="input-control">
+            <label for="date"><p>Date of birth</p></label>
+            <input type="date" name="date" id = "date">
+            <div class="error"></div>
+            </div>
+
+             </div>
+             <div>
+            <div class="input-control">
+            <label for="address"><p>Address</p></label>
+            <input type="text" placeholder="Enter your address" name="address" id = "address">
+            <div class="error"></div>
+            </div>
+             </div>
+
+             <div>
+            <div class="input-control">
+            <label for="number"><p>Phone Number</p></label>
+            <input type="number" placeholder="Enter your phone number" name="number" id="number">
+            <div class="error"></div>
+            </div>
+        
+    
+        <div>
+            <div class="input-control">
+            <input type="checkbox" name="remember" id="remember"  style="margin-bottom:15px" > I agree to these terms and services
+            <div class="error"></div>
+        </div>
+    
+            <p>Already have account?<a onclick="document.getElementById('id01').style.display='block'" style="width:auto;" href="#id01" style="color:#947D90">Log in!</a></p>
+
+
+        </div>
+             
+        
+        
+            <div class="clearfix">
+                <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
+                <button type="submit" class="signupbtn">Sign up</button>
+             </div>
+         </div>
+        </form>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-database.js"></script>
+ 
+   </section>
+
+    <section id="about">
+        <div class="polaroid">
+            <img src="../Projekat/pic/team.jpg" alt="team" style="width:100%">
+            <div class="container">
+            <p>"Alone we can do so little; </br> together we can do so much."</p>
+            </div>
+          </div>
+        <div >
+            <h1>Welcome to ACourses</h1>
+            <h4>About us </h4>
+            
+                <div class="text" >
+                     <p>ACourses provides an enriched Small Business that has helped countless students get ahead.
+                     Our unparalleled online methods help participants prepare for the next step in their career and
+                     broaden their horizons.
+                    Our course offering is unmatched and created for individuals or groups of all ages and academic levels. 
+                    Browse our site to learn more, and get in touch if you have any questions.</p>
+                    </br>
+                    </br>
+                    <p>I founded ACourses with the goal of sharing my knowledge and experience.
+                    My posts dissect the wonderful and diverse world of learning, taking deep dives into various relevant 
+                    topics that will help demystify a number of educational themes and subjects.
+                    My posts are honest and relevant, and are meant to help you find exactly what you're looking for. 
+                    I'm here to guide you through the ins and outs of the educational process with storries,
+                    tips and insights. 
+                    I hope to motivate you to become more curious, committed, and joyful in your learning trip.</p>
+                
+                        <br>
+                   <p><a href="#" style="color:#673d60">Read more</a></p>
+                </div>  
+            
+            
+          
+        </div>
+           
+    </section>
+    
+    
+    <section id="course">
+        <h1>Our Courses</h1>
+        <p>This is what we have to offer</p>
+        <div class="course-box" id="course-box">
+
+            <div class="courses">
+                <a href="Course.html"><img src="../Projekat/pic/Angular for beginners.png " alt=""></a>
+                <div class="details">
+                    <span>Updated 2021-11-12</span>
+                    <h2>Angular for beginners</h2>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span>(1231)</span>
+                    </div>
+                </div>
+                <div class="cost">
+                    9999din
+                </div>
+            </div> 
+            <div class="courses">
+                <a href="Course.html"><img src="../Projekat/pic/Basics of HTML and CSS.png " alt=""></a>
+                <div class="details">
+                    <span>Updated 2021-10-22</span>
+                    <h2>Basics of HTML and CSS</h2>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span>(1831)</span>
+                    </div>
+                </div>
+                <div class="cost">
+                    8650din
+                </div>
+            </div> 
+            <div class="courses">
+                <a href="Course.html"><img src="../Projekat/pic/JavaScript Development.jpg" alt=""></a>
+                <div class="details">
+                    <span>Updated 2021-09-02</span>
+                    <h2>JavaScript Development</h2>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span>(530)</span>
+                    </div>
+                </div>
+                <div class="cost">
+                    7235din
+                </div>
+            </div>
+            <div class="courses">
+                <a href="Course.html"><img src="../Projekat/pic/Object Oriented Programming in C.jpg" alt=""></a>
+                <div class="details">
+                    <span>Updated 2021-09-02</span>
+                    <h2>Object Oriented Programming </br>in C#</h2>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span>(1126)</span>
+                    </div>
+                </div>
+                <div class="cost">
+                    7235din
+                </div>
+            </div>
+            <div class="courses">
+                <a href="Course.html"><img src="../Projekat/pic/Python OOP.png" alt=""></a>
+                <div class="details">
+                    <span>Updated 2021-08-19</span>
+                    <h2>Python OOP</h2>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span>(1356)</span>
+                    </div>
+                </div>
+                <div class="cost">
+                    9455din
+                </div>
+            </div>
+            <div class="courses">
+                <a href="Course.html"><img src="../Projekat/pic/Introduction to Java and Object Oriented Programming.png" alt=""></a>
+                <div class="details">
+                    <span>Updated 2020-07-19</span>
+                    <h2>Introduction to Java and Object </br>Oriented Programming</h2>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span>(1559)</span>
+                    </div>
+                </div>
+                <div class="cost">
+                    10995din
+                </div>
+            </div>
+            <div class="courses">
+                <a href="Course.html"><img src="../Projekat/pic/Introduction to algorithms.jpg" alt=""></a>
+                <div class="details">
+                    <span>Updated 2020-07-19</span>
+                    <h2>Introduction to Algorithms</h2>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span>(829)</span>
+                    </div>
+                </div>
+                <div class="cost">
+                    9995din
+                </div>
+            </div>
+            <div class="courses">
+                <a href="Course.html"><img src="../Projekat/pic/Sorting algorithms.jpg" alt=""></a>
+                <div class="details">
+                    <span>Updated 2021-02-10</span>
+                    <h2>Sorting Algorithms</h2>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span>(876)</span>
+                    </div>
+                </div>
+                <div class="cost">
+                    9125din
+                </div>
+            </div>
+            <div class="courses">
+                <a href="Course.html"><img src="../Projekat/pic/Data structures from basic to advanced.jpg" alt=""></a>
+                <div class="details">
+                    <span>Updated 2019-12-10</span>
+                    <h2>Data structures from basic</br> to advanced</h2>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span>(1002)</span>
+                    </div>
+                </div>
+                <div class="cost">
+                    9399din
+                </div>
+            </div>
+            
+            
+
+        </div> 
+         </div> 
+       
+        </div>
+    </section>
+
+
+    <section class="team">
+        <h1><a href="Users.html" style="color: black;">Some of our best Users</a></h1>
+        <p>"Set a goal that makes you want to jump out of bed."</p>
+        <div class="container">
+            
+          <div class="row">
+            <div class="team-item">
+              <div class="img-box">
+                <img src="../Projekat/pic/1.jpg" alt="team img">
+                <div class="social-links">
+                  <a href="User-Profile.html">profile</a>
+                  <a href="https://www.facebook.com/">facebook</a>
+                  <a href="https://www.instagram.com/">instagram</a>
+                  <a href="https://www.youtube.com/">youtube</a>
+                </div>
+              </div>
+              <h3>sonu singh</h3>
+              <p>web developer</p>
+            </div>
+            <div class="team-item">
+              <div class="img-box">
+                <img src="../Projekat/pic/2.jpg" alt="team img">
+                <div class="social-links">
+                    <a href="User-Profile.html">profile</a>
+                    <a href="https://www.facebook.com/">facebook</a>
+                    <a href="https://www.instagram.com/">instagram</a>
+                    <a href="https://www.youtube.com/">youtube</a>
+                </div>
+              </div>
+              <h3>sonu singh</h3>
+              <p>web developer</p>
+            </div>
+            <div class="team-item">
+              <div class="img-box">
+                <img src="../Projekat/pic/3.jpg" alt="team img">
+                <div class="social-links">
+                    <a href="User-Profile.html">profile</a>
+                    <a href="https://www.facebook.com/">facebook</a>
+                    <a href="https://www.instagram.com/">instagram</a>
+                    <a href="https://www.youtube.com/">youtube</a>
+                </div>
+              </div>
+              <h3>sonu singh</h3>
+              <p>web developer</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <section class = "edit-page">
+        <div class = "container">
+            <div class = "title title-md">
+                <h3>Do you want to change your profile?</h3>
+                <div class = "line"></div>
+            </div>
+            <form class = "edit-page-form">
+                <div>
+                    <input id="email" type = "email" class = "form-control" placeholder="E-mail" >
+                    <input id="password" type = "password" class = "form-control" placeholder="Password" >
+                </div>
+                <button id="submit" class="submit-btn" ><a href="EditPage-users.html" style="color: beige;">Edit Profile</a></button>
+            </form>
+        </div>
+    </section>
+
+    </section>
+
+    <section id="contact">
+		<h1>Contact us:</h1>
+		
+		<form id="form" action="#" method="post" class="contactForm">
+            <h2>Feel free to contact us if you have a question!</h2>
+    
+         
+            <div class="input-control">
+                <div class="error"></div>
+			<input id="username1" type="text" name="contact_name" class="contactInput" placeholder="Your User Name">
+            </div>
+           
+
+
+            <div class="input-control">
+                <div class="error"></div>
+            <input id="email1" type="text" name="contact_email" class="contactInput" placeholder="Your E-Mail">
+            </div>
+        
+
+            <div class="input-control">
+                <div class="error"></div>
+            <textarea name="contact_message" placeholder="Question" id="contact_message"></textarea>
+            </div>
+    
+            
+            <div class="btn">
+               <!--- <a class="purple" href="#">Submit</a>-->
+                <button onclick="myFunction3()" class="purple">Submit</button>
+                <p id="demo"></p>
+            </div>
+        </form>
+	</section>
+    
+    <script src = "https://cdn.jsdelivr.net/npm/sweetalert2@11.3.5/dist/sweetalert2.all.min.js"></script> 
+    
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>ACourses</h4>
+                    <ul>
+                        <li><a href="#">about us</a></li>
+                        <li><a href="#">our services</a></li>
+                        <li><a href="#">privacy policy</a></li>
+                        <li><a href="#">affiliate program</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>get help</h4>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">guides</a></li>
+                        <li><a href="#">returns</a></li>
+                        <li><a href="#">order status</a></li>
+                        <li><a href="#">payment options</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4> top courses</h4>
+                    <ul>
+                        <li><a href="Course.html">Angular for begginers</a></li>
+                        <li><a href="Course.html">JavaScript Development</a></li>
+                        <li><a href="Course.html">Basics of HTML and CSS</a></li>
+                        <li><a href="Course.html">Sorting Algorithms</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>follow us</h4>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+   </footer>
+  
+    <script>
+        var modal = document.getElementById('id01');
+        
+        window.onclick = function(event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        }
+
+        $('#menu-btn').click(function() {
+            $('nav .navigation ul').addClass('active')
+        });
+        $('#menu-close').click(function(){
+            $('nav .navigation ul').removeClass('active')
+        });
+    </script>
+    
+</body>
+
+
+
+</html>
