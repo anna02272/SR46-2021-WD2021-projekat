@@ -1,0 +1,137 @@
+#table_block {
+  padding-top: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+h2 {
+  padding: 5px;
+  font-size: 27px;
+  border-bottom: 2px solid;
+}
+p {
+  font-size: 20px;
+  padding: 2px;
+}
+
+table {
+  margin-top: 30px;
+  width: 100%;
+  font-size: 18px;
+}
+
+th,
+td {
+  padding: 20px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+td {
+  background-color: #947d90;
+}
+
+tr:hover {
+  background-color: #253737;
+}
+th {
+  background-color: #673d60;
+}
+
+#delete-btn {
+  margin-top: 5px;
+  background-color: #673d60;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  color: black;
+  cursor: pointer;
+  font-family: "Bebas Neue", cursive;
+  font-size: 15px;
+  transition: 0.3s ease;
+}
+@media only screen and (max-width: 760px),
+  (min-device-width: 768px) and (max-device-width: 1024px) {
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  #table_block {
+    align-items: initial;
+  }
+
+  tr:nth-of-type(odd) {
+    background: #947d90;
+  }
+  th {
+    background: #947d90;
+    color: beige;
+    font-weight: bold;
+  }
+  td,
+  th {
+    padding: 6px;
+    border: 1px solid beige;
+    text-align: left;
+  }
+
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+
+  thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  tr {
+    border: 1px solid #ccc;
+  }
+
+  td {
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 50%;
+  }
+
+  td:before {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+  }
+
+  td:nth-of-type(1):before {
+    content: "User Name";
+  }
+  td:nth-of-type(2):before {
+    content: "First Name";
+  }
+  td:nth-of-type(3):before {
+    content: "Last name";
+  }
+  td:nth-of-type(4):before {
+    content: "Date of Birth";
+  }
+  td:nth-of-type(5):before {
+    content: "Adress";
+  }
+  td:nth-of-type(6):before {
+    content: "Phone Number";
+  }
+  td:nth-of-type(7):before {
+    content: "Date of Birth";
+  }
+  td:nth-of-type(8):before {
+    content: "E-mail";
+  }
+}

@@ -1,0 +1,106 @@
+#user {
+  height: 160vh;
+  background: url(../Projekat/pic/laptop1.jpg) no-repeat center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.profile-card {
+  margin-top: 100px;
+  width: 700px;
+  height: 900px;
+  text-align: center;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.card-header {
+  background: #2c3a47;
+  font-size: 20px;
+  padding: 5px;
+  padding-bottom: 30px;
+  padding-top: 30px;
+}
+
+.pic {
+  display: inline-block;
+  padding: 8px;
+  background: linear-gradient(130deg, #74b9ff, #673d60);
+  margin: auto;
+  border-radius: 50%;
+  background-size: 200% 200%;
+  animation: animated-gradient 2s linear infinite;
+}
+
+.pic img {
+  display: block;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+}
+
+.name {
+  color: beige;
+  font-size: 23px;
+  font-weight: 500;
+  margin: 10px 0;
+}
+.name:hover {
+  color: #673d60;
+}
+
+.sm {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 5rem;
+}
+
+.sm p {
+  color: beige;
+  font-size: 18px;
+  transition: 0.3s linear;
+}
+
+.sm p:hover {
+  color: #673d60;
+}
+
+.change-btn {
+  display: inline-block;
+  padding: 10px 50px;
+  border: 2px solid #673d60;
+  border-radius: 6px;
+  margin-top: 14px;
+  margin-left: 15px;
+  margin-bottom: 5px;
+  transition: 0.3s linear;
+}
+
+.change-btn:hover {
+  background: #673d60;
+  color: beige;
+}
+
+.border {
+  width: 1px;
+  height: 30px;
+  background: #bbb;
+}
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="number"] {
+  width: 80%;
+  padding: 8px;
+  margin: 5px 0 15px 0;
+  display: inline-block;
+  border-radius: 20px;
+  border: 1px solid #253737;
+  outline: none;
+  background: beige;
+}
+
+input[type="radio"] {
+  margin-left: 25px;
+}

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ACourses - Online IT Courses</title>
+    <link rel="stylesheet" href="acourses.css" type="text/css" />
+    <link rel="stylesheet" href="Cart.css" type="text/css" />
+    <link
+      rel="icon"
+      href="../Projekat/pic/ACourses logo.jpg"
+      type="image/png"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script  defer src = formval.js></script>
+    <!-- <script src="search.js"></script> -->
+  </head>
+  <body>
+    <nav>
+      <a href="ACourses.html"
+        ><img src="../Projekat/pic/ACourses logo.jpg"
+      /></a>
+      <div class="navigation">
+        <ul>
+          <i id="menu-close" class="fas fa-times"></i>
+          <li><a href="ACourses.html">Home</a></li>
+          <li><a href="ACourses.html #about">About</a></li>
+          <li><a href="ACourses.html #course">Courses</a></li>
+          <li><a href="ACourses.html #contact">Contact</a></li>
+          <li><a href="Users.html">Users</a></li>
+          <li>
+            <a
+              onclick="document.getElementById('id01').style.display='block'"
+              style="width: auto"
+              >Log in</a
+            >
+          </li>
+          <li>
+            <a
+              onclick="document.getElementById('id02').style.display='block'"
+              style="width: auto"
+              >Sign up</a
+            >
+          </li>
+          <li>
+            <input class="openBtn" onkeyup="openSearch() ; searchCourse()" id="search" placeholder="Search for courses" type="search" autocomplete="off"  >
+        </li>
+          <li>
+            <a href="Caart.html"><img src="../Projekat/pic/cart.jpg" /></a>
+          </li>
+        </ul>
+        <img id="menu-btn" src="../Projekat/pic/menu.png" alt="" />
+      </div>
+    </nav>
+
+    <!-- <div id = "myOverlay" class="overlay">
+      <span class="closebtn" onclick="closeSearch()" title="Close Overlay">×</span>
+      <div class="overlay-content">
+          <ul id="allCourses">
+              <table id="allCourses"></table>
+          </ul>
+      </div>
+    </div> -->
+    <section>
+        <div id="id01" class="modal">
+            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+            <form id = "form" class="modal-content" action="https://jsonplaceholder.typicode.com/users" method="GET">
+            <div id = "login_div" class="container">
+                <p>Welcome back</p>
+                <h1>Log into your account</h1>
+                 <hr>
+                     <div class="input-control">
+                  <label  for="email"><p>E-Mail</p></label>
+                <input  id = "username" type="text" placeholder="Enter your e-mail address" name="username" autocomplete="off" >
+                     <div class="error"></div>
+                     </div>
+    
+                     <div class="input-control">
+                <label for="psw"><p>Password</p></label>
+                <input id = "password" type="password" placeholder="Enter your password" name="password" autocomplete = "off">
+                    <div class="error"></div>
+                    </div>
+                 
+                
+                <label>
+                      <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px";> Remember me
+                </label>
+                <p>Not registered yet? <a onclick="document.getElementById('id02').style.display='block'" style="width:auto;" href="#id02" style="color:#947D90">Register now!</a>.</p>
+            
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                    <button onclick="login()" type="submit" class="signupbtn">Log in</button>
+                 </div>
+                      
+             </div>
+            </form>
+                  
+            <div id ="user_div">
+                <h3>You're logged in.</h3>
+                <p id ="user_para"></p>
+                <button onclick = "logout()">Logout</button>
+            </div>
+        </div>
+    
+    
+        
+    
+        <div id="id02" class="modal">
+            <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+            <form class="modal-content" id="form" >
+            <div class="container">
+                <p>If you don't have an account, please</p>
+                <h1>Sign Up</h1>
+                 
+                 <div>
+                <div class="input-control">
+                 <label for="name"><p>Name</p></label>
+                 <input type="text" placeholder="Enter your name" name="name"  id = "name">
+                    <div class="error"></div>
+                </div>
+    
+                <div class="input-control">
+                 <label for="last-name"><p>Last Name</p></label>
+                 <input type="text" placeholder="Enter your last name" name="last-name"id = "last-name">
+                 <div class="error"></div>
+                </div>
+    
+                 <div class="input-control">
+                  <label for="email"><p>E-mail</p></label>
+                <input type="text" placeholder="Enter your e-mail" name="email" id = "email">
+                <div class="error"></div>
+                </div>
+    
+                <div class="input-control">
+                <label for="psw"><p>Password</p></label>
+                <input type="password" placeholder="Enter your password" name="password" id = "password1">
+                <div class="error"></div>
+                </div>
+    
+                <div class="input-control">
+                <label for="psw"><p>Repeat Password</p></label>
+                <input id = "password2" type="password" placeholder="Enter your password" name="password2" >
+                <div class="error"></div>
+                </div>
+    
+                <div class="input-control">
+                <label for="date"><p>Date of birth</p></label>
+                <input type="date" name="date" id = "date">
+                <div class="error"></div>
+                </div>
+    
+                 </div>
+                 <div>
+                <div class="input-control">
+                <label for="address"><p>Address</p></label>
+                <input type="text" placeholder="Enter your address" name="address" id = "address">
+                <div class="error"></div>
+                </div>
+                 </div>
+    
+                 <div>
+                <div class="input-control">
+                <label for="number"><p>Phone Number</p></label>
+                <input type="number" placeholder="Enter your phone number" name="number" id="number">
+                <div class="error"></div>
+                </div>
+            
+        
+            <div>
+                <div class="input-control">
+                <input type="checkbox" name="remember" id="remember"  style="margin-bottom:15px" > I agree to these terms and services
+                <div class="error"></div>
+            </div>
+        
+                <p>Already have account?<a onclick="document.getElementById('id01').style.display='block'" style="width:auto;" href="#id01" style="color:#947D90">Log in!</a></p>
+    
+    
+            </div>
+                 
+            
+            
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
+                    <button type="submit" class="signupbtn">Sign up</button>
+                 </div>
+             </div>
+            </form>
+        </div>
+    
+    
+        <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-database.js"></script>
+    </section> 
+
+    <section class="Cart1">
+      <div class="CartContainer1">
+        <div class="row">
+          <h3 class="Heading">Courses</h3>
+        </div>
+
+        <div class="row" id="row1"></div>
+
+        <div class="row">
+          <h3 class="Heading">Shopping Cart</h3>
+        </div>
+        <div class="row" id="row2">
+          <table class="table">
+            <thead class="thead">
+              <tr>
+                <th scope="col"></th>
+                <th scope="col">Picture</th>
+                <th scope="col">Course</th>
+                <!-- <th scope="col">Quantity</th> -->
+                <th scope="col">Remove</th>
+                <th scope="col">Price</th>
+                <th scope="col">Total</th>
+              </tr>
+            </thead>
+            <tbody id="tableCourses"></tbody>
+            <tfoot id="total"></tfoot>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.5/dist/sweetalert2.all.min.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-database.js"></script>
+    <script src="cart.js"></script>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="footer-col">
+            <h4>ACourses</h4>
+            <ul>
+              <li><a href="#">about us</a></li>
+              <li><a href="#">our services</a></li>
+              <li><a href="#">privacy policy</a></li>
+              <li><a href="#">affiliate program</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>get help</h4>
+            <ul>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">guides</a></li>
+              <li><a href="#">returns</a></li>
+              <li><a href="#">order status</a></li>
+              <li><a href="#">payment options</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>top courses</h4>
+            <ul>
+              <li><a href="Course.html">Angular for begginers</a></li>
+              <li><a href="Course.html">JavaScript Development</a></li>
+              <li><a href="Course.html">Basics of HTML and CSS</a></li>
+              <li><a href="Course.html">Sorting Algorithms</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>follow us</h4>
+            <div class="social-links">
+              <a href="https://www.facebook.com/"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
+              <a href="https://www.instagram.com/"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="https://www.linkedin.com/"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      var modal = document.getElementById("id01");
+
+      window.onclick = function (event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      };
+
+      $("#menu-btn").click(function () {
+        $("nav .navigation ul").addClass("active");
+      });
+      $("#menu-close").click(function () {
+        $("nav .navigation ul").removeClass("active");
+      });
+    </script>
+  </body>
+</html>
