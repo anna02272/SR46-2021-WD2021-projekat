@@ -39,7 +39,7 @@ Shows the contents of the shopping cart.
 
 # Project Setup
 - Clone this repository to your local machine.
-- Import data from data_courses.json into your Google Firebase.
+- Import data from podaci_kursevi.json into your Google Firebase.
 - Follow the provided setup guide for Google Firebase.
 - Open the HTML files in a web browser to view the project.
 
