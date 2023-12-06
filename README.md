@@ -1,17 +1,17 @@
 # Web Design Project
 
-#Project Overview
+# Project Overview
 This is the front-end implementation for a learning platform website, created as part of the Web Design subject assignment. 
 I've applied the techniques and tools covered in the semester's exercises and lectures to bring this project to life. 
 The design is my unique vision, aligned with the guidelines given in the course.
 
-#Technologies Used
+# Technologies Used
 HTML 5
 CSS
 JavaScript 
 Firebase
 
-#Project Structure
+# Project Structure
 1. Home Page:
 Displays all available courses.
 Includes a search section for courses by name, author, or category.
@@ -22,28 +22,28 @@ Provides detailed information about a specific course.
 3. Change Course Details Page:
 Allows users to modify course information.
 
-4.Admin Page for User Management:
+4. Admin Page for User Management:
 Lists all users in the system.
 
-5.Individual User Details Page:
+5. Individual User Details Page:
 Displays individual user information (profile page).
 
-6.Individual User Details Edit Page:
+6. Individual User Details Edit Page:
 Enables users to edit their profile information.
 
-7.Login and Registration Sections:
+7. Login and Registration Sections:
 Initially hidden and displayed as pop-ups on click.
 
-8.Shopping Cart Display Page:
+8. Shopping Cart Display Page:
 Shows the contents of the shopping cart.
 
-#Project Setup
+# Project Setup
 Clone this repository to your local machine.
 Import data from data_courses.json into your Google Firebase.
 Follow the provided setup guide for Google Firebase.
 Open the HTML files in a web browser to view the project.
 
-#Images
+# Images
 Home Page
 ![Join ACourses](https://github.com/anna02272/SR46-2021-WD2021-projekat/assets/96575598/6b11d4d7-44ad-4239-8b27-d840837c4198)
 ![Welcome](https://github.com/anna02272/SR46-2021-WD2021-projekat/assets/96575598/9181f759-1212-49ca-8d3e-4e2988e573bb)
