@@ -43,7 +43,7 @@ Shows the contents of the shopping cart.
 - Follow the provided setup guide for Google Firebase.
 - Open the HTML files in a web browser to view the project.
 
-## Images
+## Images of project
 ## Home Page
 ![Join ACourses](https://github.com/anna02272/SR46-2021-WD2021-projekat/assets/96575598/6b11d4d7-44ad-4239-8b27-d840837c4198)
 ![Welcome](https://github.com/anna02272/SR46-2021-WD2021-projekat/assets/96575598/9181f759-1212-49ca-8d3e-4e2988e573bb)
